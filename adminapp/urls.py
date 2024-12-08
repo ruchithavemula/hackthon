@@ -1,0 +1,35 @@
+
+from django.urls import path
+from . import views
+app_name = 'adminapp'
+urlpatterns=[
+    path('', views.homepagecall, name='projecthomepage'),
+    path('loginpagecall/', views.loginpagecall, name='loginpagecall'),
+    path('registerpagecall/', views.registerpagecall, name='registerpagecall'),
+    path('UserRegisterLogic/', views.UserRegisterLogic, name='UserRegisterLogic'),
+    path('UserLoginLogic/', views.UserLoginLogic, name='UserLoginLogic'),
+    path('logout/', views.user_logout, name='logout'),
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('trainer_dashboard/', views.trainer_dashboard, name='trainer_dashboard'),
+    path('employee_dashboard/', views.employee_dashboard, name='employee_dashboard'),
+    path('dashboard/', views.admin_dashboard, name='dashboard'),
+    path('add_employee/', views.add_employee, name='add_employee'),
+    path('view_employee/', views.view_employee, name='view_employee'),
+    path('update_employee/<int:employee_id>/', views.update_employee, name='update_employee'),
+    path('delete_employee/<int:employee_id>/', views.delete_employee, name='delete_employee'),
+    path('employees/', views.employee_list, name='employee_list'),
+    path('schedule_meeting/', views.schedule_meeting, name='schedule_meeting'),
+    path('view_meetings/', views.view_meetings, name='view_meetings'),
+    path('send-notifications/', views.send_notifications, name='send_notifications'),
+    path('view-notifications/', views.view_notifications, name='view_notifications'),
+    path('create_report/', views.create_report, name='create_report'),
+    path('report_list/', views.report_list, name='report_list'),
+    path('assign-session/', views.assign_session, name='assign_session'),
+    path('session-list/', views.session_list, name='session_list'),
+    path('programs/', views.program_list, name='program_list'),
+    path('programs/add/', views.add_program, name='add_program'),
+    path('add-report/', views.create_report, name='add_report'),
+    path('view_report/<int:pk>/', views.view_report, name='view_report'),
+    path('update_report/<int:pk>/', views.update_report, name='update_report'),
+    path('delete_report/<int:pk>/', views.delete_report, name='delete_report'),
+]

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Training Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #f4f4f4;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li:nth-child(odd) {
+            background-color: #e9ecef;
+        }
+
+        .no-programs {
+            padding: 12px;
+            text-align: center;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Training Programs</h1>
+        <ul>
+            {% for program in programs %}
+                <li>
+                    <strong>{{ program.name }}</strong> - {{ program.title }} <br>
+                    <em>(Trainer: {{ program.trainer }}, Time: {{ program.time }})</em>
+                </li>
+            {% endfor %}
+            {% if not programs %}
+                <li class="no-programs">No training programs assigned.</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>

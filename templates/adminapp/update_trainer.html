@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% block content %}
+
+{% extends "navbar/projectnavbar.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Trainer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Update Trainer</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <h2>Trainer Information</h2>
+
+            <!-- User Form Fields -->
+            <div class="form-group">
+                <label for="{{ user_form.first_name.id_for_label }}">First Name:</label>
+                {{ user_form.first_name }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ user_form.last_name.id_for_label }}">Last Name:</label>
+                {{ user_form.last_name }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ user_form.email.id_for_label }}">Email:</label>
+                {{ user_form.email }}
+            </div>
+
+            <!-- Trainer Form Fields -->
+            <div class="form-group">
+                <label for="{{ trainer_form.specialization.id_for_label }}">Specialization:</label>
+                {{ trainer_form.specialization }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ trainer_form.experience_years.id_for_label }}">Experience (Years):</label>
+                {{ trainer_form.experience_years }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ trainer_form.contact_number.id_for_label }}">Contact Number:</label>
+                {{ trainer_form.contact_number }}
+            </div>
+
+            <button type="submit">Update Trainer</button>
+        </form>
+
+        <div class="back-link">
+            <a href="{% url 'adminapp:trainer_list' %}">Back to Trainer List</a>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% extends "navbar/projectnavbar.html" %}
+
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trainer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #34e89e, #0f3443);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        .form-container h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-container h2 {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form-container form input,
+        .form-container form select,
+        .form-container form textarea {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-container form button {
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-container form button:hover {
+            background-color: #0056b3;
+        }
+        .form-container .form-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container .form-section label {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Trainer</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-section">
+                <h2>Trainer Information</h2>
+                <div class="form-group">
+                    <label for="id_first_name">First Name</label>
+                    {{ user_form.first_name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_last_name">Last Name</label>
+                    {{ user_form.last_name }}
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Email</label>
+                    {{ user_form.email }}
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Trainer Profile</h2>
+                <div class="form-group">
+                    <label for="id_specialization">Specialization</label>
+                    {{ trainer_form.specialization }}
+                </div>
+                <div class="form-group">
+                    <label for="id_experience_years">Experience (Years)</label>
+                    {{ trainer_form.experience_years }}
+                </div>
+                <div class="form-group">
+                    <label for="id_contact_number">Contact Number</label>
+                    {{ trainer_form.contact_number }}
+                </div>
+            </div>
+
+            <button type="submit">Add Trainer</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

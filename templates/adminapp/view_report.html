@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% block content %}
+{% extends "navbar/projectnavbar.html" %}
+<html>
+<head>
+    <title>View Report</title>
+</head>
+<body>
+    <h1>Report Details</h1>
+    <div>
+        <p><strong>Title:</strong> {{ report.title }}</p>
+        <p><strong>Employee:</strong> {{ report.employee.name }}</p>
+        <p><strong>Description:</strong> {{ report.description }}</p>
+        <p><strong>Created At:</strong> {{ report.created_at }}</p>
+    </div>
+    <a href="{% url 'adminapp:report_list' %}">Back to Report List</a>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "navbar/projectnavbar.html" %}
+
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Employee</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Employee</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

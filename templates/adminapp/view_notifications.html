@@ -1,0 +1,97 @@
+{% block content %}
+{% extends "navbar/projectnavbar.html" %}
+  <div class="container">
+    <h2>All Notifications</h2>
+
+    {% if notifications %}
+      <table class="notifications-table">
+        <thead>
+          <tr>
+            <th>Employee</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for notification in notifications %}
+            <tr>
+              <td>{{ notification.employee.username }}</td>
+              <td>{{ notification.title }}</td>
+              <td>{{ notification.message }}</td>
+              <td>{{ notification.created_at }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No notifications available.</p>
+    {% endif %}
+
+    <a href="{% url 'adminapp:send_notifications' %}" class="send-notification-btn">Send New Notification</a>
+  </div>
+{% endblock %}
+
+<style>
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .notifications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .notifications-table th, .notifications-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+
+  .notifications-table th {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+
+  .notifications-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .notifications-table tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  p {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+  }
+
+  .send-notification-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  .send-notification-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+{% endblock %}

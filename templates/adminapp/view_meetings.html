@@ -1,0 +1,82 @@
+{% block content %}
+{% extends "navbar/projectnavbar.html" %}
+  <div class="container">
+    <h2>All Meetings</h2>
+
+    {% if meetings %}
+      <table class="meetings-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Employee</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for meeting in meetings %}
+            <tr>
+              <td>{{ meeting.title }}</td>
+              <td>{{ meeting.description }}</td>
+              <td>{{ meeting.date }}</td>
+              <td>{{ meeting.time }}</td>
+              <td>{{ meeting.employee.username }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No meetings available.</p>
+    {% endif %}
+  </div>
+{% endblock %}
+
+<style>
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .meetings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .meetings-table th, .meetings-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+
+  .meetings-table th {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+
+  .meetings-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .meetings-table tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  p {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+  }
+</style>
+{% endblock %}

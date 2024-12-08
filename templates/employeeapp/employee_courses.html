@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Courses</title>
+</head>
+<body>
+    <h1>Courses</h1>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.title }} by {{ course.user.username }} - {{ course.description }} ({{ course.duration }} hours)</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

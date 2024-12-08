@@ -1,0 +1,20 @@
+
+{% extends "navbar/projectnavbar.html" %}
+
+{% block body %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Session</title>
+</head>
+<body>
+    <h1>Assign Onboarding Session</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Assign Session</button>
+    </form>
+</body>
+</html>
+{% endblock %}

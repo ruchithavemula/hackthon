@@ -1,0 +1,9 @@
+{% block content %}
+<h2>Schedule Meeting</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Schedule and Send</button>
+</form>
+<a href="{% url 'trainerapp:meeting_list' %}">Back to Meetings</a>
+{% endblock %}

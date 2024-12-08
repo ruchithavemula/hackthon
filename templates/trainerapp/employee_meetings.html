@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Meetings</title>
+</head>
+<body>
+    <h1>Meetings for Employee</h1>
+    <ul>
+        {% for meeting in meetings %}
+        <li>
+            <strong>{{ meeting.title }}</strong> - {{ meeting.description }}<br>
+            Meeting Link: <a href="{{ meeting.meeting_link }}" target="_blank">Join</a><br>
+            Date: {{ meeting.date }} | Time: {{ meeting.time }}
+        </li>
+        {% empty %}
+        <li>No meetings found for this employee.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

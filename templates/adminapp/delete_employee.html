@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+{% extends "navbar/projectnavbar.html" %}
+
+{% block body %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Employee</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .delete-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .delete-container h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .delete-container p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .delete-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .delete-container form button {
+            padding: 12px 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .delete-container form button:hover {
+            background-color: #c9302c;
+        }
+        .delete-container form a {
+            padding: 12px 20px;
+            background-color: #5bc0de;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .delete-container form a:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-container">
+        <h2>Delete Employee</h2>
+        <p>Are you sure you want to delete <strong>{{ employee.name }}</strong>?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <button type="submit">Yes, delete</button>
+            </div>
+            <div>
+                <a href="{% url 'adminapp:employee_list' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

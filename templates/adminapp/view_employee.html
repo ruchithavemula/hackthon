@@ -1,0 +1,70 @@
+{% block content %}
+  <div class="container">
+    <h2>Employee List</h2>
+
+    {% if employees %}
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for employee in employees %}
+            <tr>
+              <td>{{ employee.user.username }}</td>
+              <td>{{ employee.role }}</td>
+              <td>{{ employee.phone_number }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No employees available.</p>
+    {% endif %}
+
+  </div>
+{% endblock %}
+
+<style>
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .employee-table th, .employee-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+
+  .employee-table th {
+    background-color: #f8f8f8;
+  }
+
+  .employee-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  p {
+    text-align: center;
+    color: #777;
+  }
+</style>

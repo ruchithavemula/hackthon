@@ -1,0 +1,82 @@
+{% block content %}
+  <div class="container">
+    <h2 class="page-title">My Meetings</h2>
+
+    <table class="meetings-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for meeting in meetings %}
+          <tr>
+            <td>{{ meeting.title }}</td>
+            <td>{{ meeting.description }}</td>
+            <td>{{ meeting.date }}</td>
+            <td>{{ meeting.time }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="no-data">No meetings scheduled.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .container {
+      width: 80%;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .page-title {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .meetings-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .meetings-table th, .meetings-table td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .meetings-table th {
+      background-color: #f4f4f4;
+      font-weight: bold;
+    }
+
+    .meetings-table td {
+      background-color: #fafafa;
+    }
+
+    .meetings-table tr:nth-child(even) td {
+      background-color: #f9f9f9;
+    }
+
+    .meetings-table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .no-data {
+      text-align: center;
+      font-style: italic;
+      color: #aaa;
+    }
+  </style>
+{% endblock %}

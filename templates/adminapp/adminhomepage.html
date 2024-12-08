@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'adminapp/css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: navy;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-section {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-section div {
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .dashboard-section div:hover {
+            background-color: #cce5ff;
+        }
+
+        .footer {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .logout-btn {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Admin Dashboard</h1>
+        <button class="logout-btn" onclick="window.location.href='{% url 'adminapp:logout' %}'">Logout</button>
+    </div>
+
+    <div class="container">
+        <h2 class="dashboard-title">Welcome, Admin!</h2>
+
+        <div class="dashboard-section">
+            <div>
+                <h3>Manage Users</h3>
+                <p>View and manage all registered users.</p>
+                <button onclick="window.location.href='#' %}'">Go to Users</button>
+            </div>
+
+            <div>
+                <h3>Manage Courses</h3>
+                <p>Create, edit, and manage training courses.</p>
+                <button onclick="window.location.href='#'">Go to Courses</button>
+            </div>
+
+            <div>
+                <h3>Reports</h3>
+                <p>View training and performance reports.</p>
+                <button onclick="window.location.href='#'">View Reports</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Employee Training and Onboarding System. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

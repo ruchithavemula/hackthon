@@ -1,0 +1,20 @@
+<!-- employeeapp/templates/employeeapp/my_assigned_courses.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Assigned Courses</title>
+</head>
+<body>
+    <h1>My Courses</h1>
+    <ul>
+        {% for enrollment in enrollments %}
+            <li>
+                <strong>{{ enrollment.course.title }}</strong><br>
+                {{ enrollment.course.description }}<br>
+                Start Date: {{ enrollment.course.start_date }} | End Date: {{ enrollment.course.end_date }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.user.get_full_name }}'s Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            color: #333;
+        }
+
+        .profile-details {
+            margin-bottom: 20px;
+        }
+
+        .profile-details p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .profile-details strong {
+            color: #333;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-picture img {
+            border-radius: 8px;
+            max-width: 200px;
+            height: auto;
+        }
+
+        .no-picture {
+            font-style: italic;
+            color: #777;
+            text-align: center;
+        }
+
+        .edit-profile-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .edit-profile-link a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .edit-profile-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <h1>{{ profile.user.get_full_name }}'s Profile</h1>
+        </div>
+
+        <div class="profile-details">
+            <p><strong>Job Title:</strong> {{ profile.job_title }}</p>
+            <p><strong>Department:</strong> {{ profile.department }}</p>
+            <p><strong>Contact Number:</strong> {{ profile.contact_number }}</p>
+            <p><strong>Address:</strong> {{ profile.address }}</p>
+        </div>
+
+        <div class="profile-picture">
+            {% if profile.profile_picture %}
+                <p><strong>Profile Picture:</strong></p>
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+            {% else %}
+                <p class="no-picture">No profile picture uploaded.</p>
+            {% endif %}
+        </div>
+
+        <div class="edit-profile-link">
+            <a href="{% url 'employeeapp:create_profile' %}">Edit Profile</a>
+        </div>
+    </div>
+</body>
+</html>

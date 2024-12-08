@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Certificates</title>
+</head>
+<body>
+    <h1>Your Certificates</h1>
+    {% if certificates %}
+        <ul>
+            {% for certificate in certificates %}
+                <li>
+                    <strong>{{ certificate.title }}</strong><br>
+                    Issued on: {{ certificate.issue_date }}<br>
+                    <a href="{{ certificate.certificate_file.url }}" target="_blank">View Certificate</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No certificates assigned to you yet.</p>
+    {% endif %}
+</body>
+</html>

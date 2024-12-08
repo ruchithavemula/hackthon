@@ -1,0 +1,25 @@
+{% block content %}
+  <h2>Employee List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+        <tr>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.position }}</td>
+          <td>
+            <a href="{% url 'adminapp:update_employee' employee.id %}">Update</a> |
+            <a href="{% url 'adminapp:delete_employee' employee.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'adminapp:add_employee' %}">Add New Employee</a>
+{% endblock %}

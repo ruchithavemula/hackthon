@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef; /* Light background color */
+        }
+        .sidebar {
+            height: 100vh;
+            background-color: #343a40; /* Dark sidebar color */
+            padding: 20px;
+            position: fixed;
+            width: 250px;
+        }
+        .sidebar a {
+            color: white; /* White text for sidebar links */
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+        .sidebar a:hover {
+            background-color: #495057; /* Darker background on hover */
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .content {
+            margin-left: 270px; /* Space for sidebar */
+            padding: 20px;
+        }
+        h2 {
+            color: #343a40; /* Dark text color for the heading */
+        }
+        .card {
+            margin-top: 20px; /* Space between cards */
+        }
+        .card img {
+            border-radius: 5px; /* Rounded corners for images */
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-white">Admin Menu</h3>
+        <a href="{% url 'adminapp:add_employee' %}">Add Employees</a>
+        <a href="{% url 'adminapp:view_employee' %}">View Employees</a>
+        <a href="{% url 'adminapp:employee_list' %}">Employees List</a>
+        <a href="{% url 'adminapp:schedule_meeting' %}">Schdeule Meeting</a>
+        <a href="{% url 'adminapp:send_notifications' %}">Send Notifications</a>
+        <a href="{% url 'adminapp:create_report' %}">Reports</a>
+        <a href="{% url 'adminapp:assign_session' %}">Assign Session</a>
+        <a href="{% url 'adminapp:add_program' %}">Add Program</a>
+        <a href="{% url 'adminapp:program_list' %}">Program Lists</a>
+
+        {% for employee in employees %}
+       <a href="{% url 'adminapp:delete_employee' employee.id %}">Delete {{ employee.name }}</a>
+        {% endfor %}
+
+       {% for employee in employees %}
+       <a href="{% url 'adminapp:update_employee' employee.id %}">Update</a>
+        {% endfor %}
+
+
+
+    </div>
+
+    <div class="content">
+        <h2>Admin Dashboard</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'image-350x150.jpg' %}" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Employees</h5>
+                        <a href="{% url 'adminapp:view_employee' %}" class="btn btn-primary">View Employees</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'image1-350x120.jpg' %}" class="card-img-top" alt="Image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Progress Reports</h5>
+
+                        <a href="#" class="btn btn-primary">View Reports</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'image2-350x150.jpg' %}" class="card-img-top" alt="Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Trainer Dashboard</h5>
+
+                        <a href="#" class="btn btn-primary">View Trainer Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'trainerapp/assignment.html' %}
+{% load static %}
+{% block body %}
+
+
+
+<div style="max-width: 800px; margin: 20px auto; padding: 20px; border: 2px solid #333; border-radius: 10px; font-family: Arial, sans-serif; background-color: #fff; color: #000; text-align: center;">
+
+    <video autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="{% static 'videos/black.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 style="margin-bottom: 20px; font-size: 28px; text-transform: uppercase; color: #000;">Results</h1>
+
+  <div style="width: 100%; height: 40px; display: flex; justify-content: space-between; margin: 20px 0; border: 1px solid #555; border-radius: 5px; overflow: hidden;">
+    <div style="width: {{ correct_percentage }}%; height: 100%; background: linear-gradient(135deg, #fff, #333); box-shadow: 0 0 8px #fff; color: #000; display: flex; align-items: center; justify-content: center; line-height: 40px; border-radius: 5px;">
+      Correct: {{ correct_percentage|floatformat:0 }}%
+    </div>
+    <div style="width: {{ wrong_percentage }}%; height: 100%; background: linear-gradient(135deg, #888, #555); box-shadow: 0 0 8px #555; color: #000; display: flex; align-items: center; justify-content: center; line-height: 40px; border-radius: 5px;">
+      Wrong: {{ wrong_percentage|floatformat:0 }}%
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px; font-size: 16px;">
+    <p>Total Correct:{{ correct_count }} / 10</p>
+    <p>Total Wrong: {{ wrong_count }} / 10</p>
+  </div>
+</div>
+{% endblock %}

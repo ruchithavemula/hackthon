@@ -1,0 +1,194 @@
+{% extends 'navbar/trainernavbar.html' %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="container">
+
+  <h1 class="header">Assignment </h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="questions-container">
+
+      <!-- Question 1 -->
+      <div class="question">
+        <label>1. Which of the following is an example of a cloud storage service?</label>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Google Drive</label>
+          <label><input type="radio" name="q1" value="b"> Microsoft Word</label>
+          <label><input type="radio" name="q1" value="c"> Photoshop</label>
+          <label><input type="radio" name="q1" value="d"> Visual Studio</label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <label>2. Which tool is commonly used for creating presentation slides?</label>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Microsoft Excel</label>
+          <label><input type="radio" name="q2" value="b"> Microsoft PowerPoint</label>
+          <label><input type="radio" name="q2" value="c"> Microsoft Word</label>
+          <label><input type="radio" name="q2" value="d"> Notepad++</label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <label>3. What is the main purpose of version control tools?</label>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> To optimize computer memory</label>
+          <label><input type="radio" name="q3" value="b"> To track changes and manage team collaboration in code</label>
+          <label><input type="radio" name="q3" value="c"> To convert programming languages into machine code</label>
+          <label><input type="radio" name="q3" value="d"> To test websites for broken links</label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <label>4. What is the main purpose of version control tools?</label>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> To optimize computer memory</label>
+          <label><input type="radio" name="q4" value="b"> To track changes and manage team collaboration in code</label>
+          <label><input type="radio" name="q4" value="c"> To convert programming languages into machine code</label>
+          <label><input type="radio" name="q4" value="d"> To test websites for broken links</label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <label>5. Which IT tool is most commonly used for collaborative communication in a team?</label>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Microsoft Word</label>
+          <label><input type="radio" name="q5" value="b"> Slack</label>
+          <label><input type="radio" name="q5" value="c"> Tableau</label>
+          <label><input type="radio" name="q5" value="d"> Adobe Photoshop</label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <label>6. What does cloud computing mainly allow users to do?</label>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Access software without installing it on local devices</label>
+          <label><input type="radio" name="q6" value="b"> Store, access, and share data online</label>
+          <label><input type="radio" name="q6" value="c"> Test web designs</label>
+          <label><input type="radio" name="q6" value="d"> Only connect with social media</label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <label>7. Which of the following is an example of a data analysis tool?</label>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> Google Docs</label>
+          <label><input type="radio" name="q7" value="b"> Microsoft Excel</label>
+          <label><input type="radio" name="q7" value="c"> Google Drive</label>
+          <label><input type="radio" name="q7" value="d"> Adobe Photoshop</label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <label>8. What is the main benefit of using collaborative tools in a business setting?</label>
+        <div class="options">
+          <label><input type="radio" name="q8" value="a"> To reduce the costs of software licenses</label>
+          <label><input type="radio" name="q8" value="b"> To enable multiple users to edit and share files simultaneously</label>
+          <label><input type="radio" name="q8" value="c"> To access websites faster</label>
+          <label><input type="radio" name="q8" value="d"> To ensure antivirus protection</label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <label>9. Which IT tool allows users to access data from any location as long as there is internet access?</label>
+        <div class="options">
+          <label><input type="radio" name="q9" value="a"> VPN Tools</label>
+          <label><input type="radio" name="q9" value="b"> Cloud storage tools</label>
+          <label><input type="radio" name="q9" value="c"> Microsoft Word</label>
+          <label><input type="radio" name="q9" value="d"> Email services</label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <label>10. Which of the following is an example of a learning management system (LMS)?</label>
+        <div class="options">
+          <label><input type="radio" name="q10" value="a"> Slack</label>
+          <label><input type="radio" name="q10" value="b"> Google Classroom</label>
+          <label><input type="radio" name="q10" value="c"> Adobe Acrobat</label>
+          <label><input type="radio" name="q10" value="d"> Microsoft Teams</label>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-container">
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>
+<style>
+  /* Base Container */
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;  /* Change header text color to white */
+  }
+
+  /* Questions Styling */
+  .questions-container .question {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Options */
+  .options label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    color: white;  /* Change option text color to white */
+  }
+
+  /* Question Labels */
+  .question label {
+    color: white;  /* Change question text color to white */
+  }
+
+  /* Submit Button */
+  .submit-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .submit-container input[type="submit"] {
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-container input[type="submit"]:hover {
+    background-color: #000000;
+  }
+</style>
+
+
+{% endblock %}

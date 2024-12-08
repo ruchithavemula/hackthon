@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% block content %}
+
+{% extends "navbar/projectnavbar.html" %}
+<html>
+<head>
+    <title>Update Report</title>
+</head>
+<body>
+    <h1>Update Report</h1>
+    <form method="post" action="{% url 'adminapp:update_report' report.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    <a href="{% url 'adminapp:report_list' %}">Back to Report List</a>
+</body>
+</html>
+{% endblock %}
